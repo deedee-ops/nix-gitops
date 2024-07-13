@@ -9,11 +9,6 @@
         export GNUPGHOME="${config.xdg.dataHome}/gnupg"
         $DRY_RUN_CMD ${pkgs.gnupg}/bin/gpg-connect-agent "scd serialno" "learn --force" /bye
       '';
-      ssh = lib.hm.dag.entryAfter [ "sopsNix" ] ''
-        $DRY_RUN_CMD mkdir -p ${config.home.homeDirectory}/.ssh
-        $DRY_RUN_CMD cp -f ${config.sops.secrets."ssh/personal/key".path} ${config.home.homeDirectory}/.ssh/personal
-        $DRY_RUN_CMD ${pkgs.openssh}/bin/ssh-keygen -f ${config.home.homeDirectory}/.ssh/personal -y > ${config.home.homeDirectory}/.ssh/personal.pub
-      '';
     };
   };
 
@@ -30,7 +25,7 @@
           hostname = "router.${osConfig.localDomain}";
           identitiesOnly = true;
           identityFile = [
-            "${config.home.homeDirectory}/.ssh/personal"
+            config.sops.secrets."ssh/personal/key".path
           ];
           port = 22;
           user = "ajgon";
@@ -41,7 +36,7 @@
           hostname = "supervisor.${osConfig.localDomain}";
           identitiesOnly = true;
           identityFile = [
-            "${config.home.homeDirectory}/.ssh/personal"
+            config.sops.secrets."ssh/personal/key".path
           ];
           port = 22;
           user = "ajgon";
@@ -52,7 +47,7 @@
           hostname = "dexter.${osConfig.localDomain}";
           identitiesOnly = true;
           identityFile = [
-            "${config.home.homeDirectory}/.ssh/personal"
+            config.sops.secrets."ssh/personal/key".path
           ];
           port = 22;
           user = "ajgon";
@@ -63,7 +58,7 @@
           hostname = "gitea.${osConfig.remoteDomain}";
           identitiesOnly = true;
           identityFile = [
-            "${config.home.homeDirectory}/.ssh/personal"
+            config.sops.secrets."ssh/personal/key".path
           ];
           port = 22222;
           user = "git";
@@ -74,7 +69,7 @@
           hostname = "nas.${osConfig.localDomain}";
           identitiesOnly = true;
           identityFile = [
-            "${config.home.homeDirectory}/.ssh/personal"
+            config.sops.secrets."ssh/personal/key".path
           ];
           port = 51008;
           user = "ajgon";
@@ -85,7 +80,7 @@
           hostname = "pbs.${osConfig.localDomain}";
           identitiesOnly = true;
           identityFile = [
-            "${config.home.homeDirectory}/.ssh/personal"
+            config.sops.secrets."ssh/personal/key".path
           ];
           port = 22;
           user = "ajgon";
@@ -98,7 +93,7 @@
           hostname = "github.com";
           identitiesOnly = true;
           identityFile = [
-            "${config.home.homeDirectory}/.ssh/personal"
+            config.sops.secrets."ssh/personal/key".path
           ];
           port = 22;
           user = "git";
