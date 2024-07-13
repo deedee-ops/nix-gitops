@@ -1,0 +1,17 @@
+rasterizePDF() {
+    echo "Usage: rasterizePDF fromfile.pdf : this makes a 300dpi raster version. And optimizes it with ghostscript. Output is \"$1-scanned.pdf\""
+    tmpfile=$(mktemp).pdf
+    echo "Creating raster version... (in $tmpfile)"
+    convert -render -density 300 $1 $tmpfile
+    echo "Optimizing to shrink pdf file..."
+    nix shell nixpkgs#ghostscript_headless --command gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH -sOutputFile="$1-scanned.pdf" $tmpfile
+}
+
+convertImagesToPDF() {
+    echo "Usage: convertImagesToPDF file1.jpg file2.jpg ... : this will make optimized PDF, named output.pdf"
+    tmpfile=$(mktemp).pdf
+    echo "Creating merged version... (in $tmpfile)"
+    convert -resize 1200 -render -density 300 $@ $tmpfile
+    echo "Optimizing to shrink pdf file..."
+    gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH -sOutputFile="output.pdf" $tmpfile
+}

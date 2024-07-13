@@ -1,0 +1,40 @@
+{ config, pkgs, ... }:
+{
+  imports =
+    [
+      ./hardware-configuration.nix
+      ./networking.nix
+
+      ../../modules/options.nix
+
+      ../../modules/locales.nix
+      ../../modules/nvidia.nix
+      ../../modules/os.nix
+      ../../modules/ssh.nix
+      ../../modules/sound.nix
+      ../../modules/users.nix
+      ../../modules/xorg.nix
+
+      ../../modules/home-manager
+
+      ./modules/boot.nix
+      ./modules/xorg.nix
+    ];
+
+  primaryUser = "ajgon";
+  currentHostname = config.networking.hostName;
+  hmImports = [
+    ../../profiles/personal/core.nix
+    ../../profiles/personal/local.nix
+    ../../profiles/personal/xorg.nix
+  ];
+
+  # system packages
+  environment.systemPackages = with pkgs; [
+    git
+    home-manager
+    vim
+  ];
+
+  system.stateVersion = "24.05";
+}

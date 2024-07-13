@@ -1,0 +1,36 @@
+{ config, pkgs, ... }:
+{
+  imports =
+    [
+      ./hardware-configuration.nix
+      ./networking.nix
+
+      ../../modules/comin.nix
+      ../../modules/locales.nix
+      ../../modules/os.nix
+      ../../modules/ssh.nix
+      ../../modules/users.nix
+      ../../modules/vm.nix
+
+      ./modules/boot.nix
+
+      (import ./modules/docker.nix { inherit config pkgs; })
+    ];
+
+  primaryUser = "ajgon";
+  currentHostname = config.networking.hostName;
+
+  # sops
+  sops = {
+    defaultSopsFile = ./secrets.sops.yaml;
+    age.keyFile = /etc/age/keys.txt;
+  };
+
+  # system packages
+  environment.systemPackages = with pkgs; [
+    git
+    vim
+  ];
+
+  system.stateVersion = "24.05";
+}
