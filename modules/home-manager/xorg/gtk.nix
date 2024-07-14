@@ -2,10 +2,19 @@
   # dconf activation script fails because we don't have gnome - kill it
   home.activation.dconfSettings = lib.hm.dag.entryAfter [ "installPackages" ] (lib.mkForce "");
 
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
   gtk = {
     enable = true;
     gtk2 = {
       configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
     };
     cursorTheme = {
       package = pkgs.catppuccin-cursors.mochaDark;

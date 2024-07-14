@@ -60,6 +60,8 @@
     defaultSymlinkPath = "/tmp/${config.home.username}-secrets";
   };
 
+  xdg.mimeApps.enable = true;
+
   programs = {
     home-manager = {
       enable = true;

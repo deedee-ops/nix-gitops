@@ -15,6 +15,17 @@ in {
       LIBVA_DRIVER_NAME = "nvidia";
       LIBVA_DRIVERS_PATH = "${pkgs.nvidia-vaapi-driver}/lib/dri/";
       NVD_BACKEND = "direct";
+      DEFAULT_BROWSER = "${(nixGL pkgs.firefox)}/bin/firefox";
+    };
+  };
+
+  xdg.mimeApps = {
+    defaultApplications = {
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/about" = "firefox.desktop";
+      "x-scheme-handler/unknown" = "firefox.desktop";
     };
   };
 }

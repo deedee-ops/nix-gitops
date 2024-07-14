@@ -24,7 +24,7 @@
       Comment=Zoom Video Conference
       Exec=${zoomwrapper}/bin/zoom-wrapper %U
       Icon=Zoom
-      Terminal=true
+      Terminal=false
       Type=Application
       Encoding=UTF-8
       Categories=Network;Application;
@@ -33,6 +33,17 @@
       X-KDE-Protocols=zoommtg;zoomus;tel;callto;zoomphonecall;
       Name[en_US]=Zoom
     '';
+  };
+
+  xdg.mimeApps = {
+    defaultApplications = {
+      "x-scheme-handler/zoommtg" = "Zoom.desktop";
+      "x-scheme-handler/zoomus" = "Zoom.desktop";
+      "x-scheme-handler/tel" = "Zoom.desktop";
+      "x-scheme-handler/callto" = "Zoom.desktop";
+      "x-scheme-handler/zoomphonecall" = "Zoom.desktop";
+      "application/x-zoom" = "Zoom.desktop";
+    };
   };
 }
 

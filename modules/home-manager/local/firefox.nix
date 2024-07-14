@@ -91,6 +91,10 @@ let
 
     // expose app links
     user_pref('network.protocol-handler.expose.zoommtg', false);
+
+    // containers
+    user_pref("privacy.userContext.enabled", true);
+    user_pref("privacy.userContext.ui.enabled", true);
   '';
 in
 {
