@@ -27,9 +27,9 @@
         supervisor = {
           settings = {
             imports = [
-              ./arion-adguard-home.nix
-              ./arion-nginx-proxy-manager.nix
-              ./arion-omada-controller.nix
+              (import ./arion-adguard-home.nix { inherit config; })
+              (import ./arion-nginx-proxy-manager.nix { inherit config; })
+              (import ./arion-omada-controller.nix { inherit config; })
             ];
           };
         };

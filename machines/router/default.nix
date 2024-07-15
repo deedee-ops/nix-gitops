@@ -5,6 +5,8 @@
       ./hardware-configuration.nix
       ./networking.nix
 
+      ../../modules/options.nix
+
       ../../modules/comin.nix
       ../../modules/locales.nix
       ../../modules/os.nix
@@ -17,7 +19,7 @@
       ./modules/ddclient.nix
       ./modules/firewall.nix
       ./modules/frr.nix
-      (import ./modules/kea.nix { inherit nixpkgs-unstable; })
+      (import ./modules/kea.nix { inherit config pkgs nixpkgs-unstable; })
     ];
 
   primaryUser = "ajgon";

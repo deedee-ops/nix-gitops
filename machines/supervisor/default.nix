@@ -5,6 +5,8 @@
       ./hardware-configuration.nix
       ./networking.nix
 
+      ../../modules/options.nix
+
       ../../modules/comin.nix
       ../../modules/locales.nix
       ../../modules/os.nix
