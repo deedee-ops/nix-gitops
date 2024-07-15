@@ -100,7 +100,7 @@ in
           file "${
             pkgs.fetchurl {
               url = "http://www.internic.net/domain/named.root";
-              hash = "sha256-Jfu4b5dfgUrVwzUR2svc/AfLINCje0lv7e+nJC7zGIs=";
+              hash = "sha256-rWqbuFjqMsfM7Y7KTwZhK7y+uCijXj9zvpWCi850aH8=";
             }
           }";
         };
