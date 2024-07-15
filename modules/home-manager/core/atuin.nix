@@ -19,9 +19,7 @@
 
   xdg.configFile = {
     "zsh/extra/atuin.zsh".text = ''
-      if ! ${pkgs.atuin}/bin/atuin sync > /dev/null 2>&1; then
-        echo ATUIN IS NOT SYNCING PROPERLY!
-      fi
+      (>/dev/null ${pkgs.bash}/bin/bash -c 'if ! ${pkgs.atuin}/bin/atuin sync > /dev/null 2>&1; then echo "ATUIN IS NOT SYNCING PROPERLY" >&2; fi' &)
     '';
   };
 }
