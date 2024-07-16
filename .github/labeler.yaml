@@ -1,0 +1,21 @@
+---
+# yaml-language-server: disabled
+area/github:
+  - changed-files:
+      - any-glob-to-any-file: .github/**/*
+area/nix:
+  - changed-files:
+      - any-glob-to-any-file: modules/**/*
+machine/router:
+  - changed-files:
+      - any-glob-to-any-file: machines/router/**/*
+machine/supervisor:
+  - changed-files:
+      - any-glob-to-any-file: machines/supervisor/**/*
+machine/piecyk:
+  - changed-files:
+      - any-glob-to-any-file: machines/piecyk/**/*
+profile/personal:
+  - changed-files:
+      - any-glob-to-any-file: profiles/personal/**/*
+

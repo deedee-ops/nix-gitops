@@ -1,0 +1,43 @@
+---
+# yaml-language-server: disabled
+# Area
+- name: area/github
+  color: "72ccf3"
+  description: >-
+    Changes made in the github directory
+- name: area/nix
+  color: "72ccf3"
+  description: >-
+    Changes made in the nix directory
+- name: machine/router
+  color: "72ccf3"
+  description: >-
+    Changes made in the router machine
+- name: machine/supervisor
+  color: "72ccf3"
+  description: >-
+    Changes made in the supervisor machine
+- name: machine/piecyk
+  color: "72ccf3"
+  description: >-
+    Changes made in the piecyk machine
+- name: profile/personal
+  color: "72ccf3"
+  description: >-
+    Changes made in the personal profile
+# Renovate
+- name: renovate/container
+  color: "009485"
+- name: renovate/github-action
+  color: "009485"
+- name: renovate/github-release
+  color: "009485"
+# Semantic Type
+- name: type/digest
+  color: "ffec19"
+- name: type/patch
+  color: "ffec19"
+- name: type/minor
+  color: "ff9800"
+- name: type/major
+  color: "f6412d"
