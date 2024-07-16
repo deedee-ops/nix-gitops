@@ -7,6 +7,8 @@
 
       ../../modules/options.nix
 
+      ../../modules/attic-client.nix
+      ../../modules/cache.nix
       ../../modules/locales.nix
       ../../modules/nvidia.nix
       ../../modules/os.nix
@@ -28,6 +30,12 @@
     ../../profiles/personal/local.nix
     ../../profiles/personal/xorg.nix
   ];
+
+  # sops
+  sops = {
+    defaultSopsFile = ./secrets.sops.yaml;
+    age.keyFile = /etc/age/keys.txt;
+  };
 
   # system packages
   environment.systemPackages = with pkgs; [

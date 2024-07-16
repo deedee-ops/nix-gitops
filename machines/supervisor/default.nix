@@ -7,6 +7,8 @@
 
       ../../modules/options.nix
 
+      ../../modules/attic-client.nix
+      ../../modules/cache.nix
       ../../modules/comin.nix
       ../../modules/locales.nix
       ../../modules/os.nix
@@ -14,6 +16,7 @@
       ../../modules/users.nix
       ../../modules/vm.nix
 
+      ./modules/attic-server.nix
       ./modules/boot.nix
 
       (import ./modules/docker.nix { inherit config pkgs; })

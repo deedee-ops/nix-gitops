@@ -7,6 +7,8 @@
 
       ../../modules/options.nix
 
+      ../../modules/attic-client.nix
+      ../../modules/cache.nix
       ../../modules/comin.nix
       ../../modules/locales.nix
       ../../modules/os.nix
