@@ -66,5 +66,6 @@
     networkmanager.enable = false;
     enableIPv6 = false;
     useDHCP = false;
+    nameservers = [ "10.42.1.1" ];
   };
 }
