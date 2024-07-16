@@ -4,6 +4,8 @@
     pkgs.luajitPackages.luarocks # mason
     pkgs.unzip # mason
     pkgs.cargo # mason
+    pkgs.python3 # mason
+    pkgs.wget # mason
     pkgs.sshfs # remote-sshfs
     pkgs.sops # vim-sops
     pkgs.fd # telescope-filebrowser
