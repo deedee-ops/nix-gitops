@@ -5,7 +5,7 @@
 
   hardware.nvidia = {
     modesetting.enable = true;
-    open = false;  # 3070Ti is compatible, but driver is not stable enough
+    open = false; # 3070Ti is compatible, but driver is not stable enough
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };

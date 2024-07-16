@@ -13,11 +13,11 @@
     "helpers:pinGitHubActionDigests",
     ":timezone(Europe/Warsaw)",
     ":rebaseStalePrs",
-    "github>deedee-ops/home-ops//.github/renovate/autoMerge.json5",
-    "github>deedee-ops/home-ops//.github/renovate/commitMessage.json5",
-    "github>deedee-ops/home-ops//.github/renovate/customManagers.json5",
-    "github>deedee-ops/home-ops//.github/renovate/labels.json5",
-    "github>deedee-ops/home-ops//.github/renovate/semanticCommits.json5"
+    "github>deedee-ops/nix-gitops//.github/renovate/autoMerge.json5",
+    "github>deedee-ops/nix-gitops//.github/renovate/commitMessage.json5",
+    "github>deedee-ops/nix-gitops//.github/renovate/customManagers.json5",
+    "github>deedee-ops/nix-gitops//.github/renovate/labels.json5",
+    "github>deedee-ops/nix-gitops//.github/renovate/semanticCommits.json5"
   ],
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
   "suppressNotifications": ["prEditedNotification", "prIgnoreNotification"],

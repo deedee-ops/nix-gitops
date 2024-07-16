@@ -5,6 +5,9 @@ name: "Linter"
 
 'on':
   workflow_dispatch:
+  push:
+    branches:
+      - master
   pull_request:
     branches:
       - master
@@ -30,6 +33,8 @@ jobs:
         uses: cachix/install-nix-action@ba0dd844c9180cbf77aa72a116d6fbc515d0e87b # v27
         with:
           nix_path: nixpkgs=channel:nixos-unstable
+          extra_nix_config: |
+            access-tokens = github.com=${{ steps.app-token.outputs.token }}
       - name: Run nixpkgs-fmt
         uses: workflow/nix-shell-action@10ebd4e80eae8a5bc5147c0a36ebb568d1b277bd # v3.3.2
         with:

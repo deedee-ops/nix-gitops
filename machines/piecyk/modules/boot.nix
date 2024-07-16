@@ -6,7 +6,8 @@ let
     rev = "v1.0.0";
     sha256 = "sha256-/bSolCta8GCZ4lP0u5NVqYQ9Y3ZooYCNdTwORNvR7M0=";
   };
-in {
+in
+{
   boot = {
     loader = {
       # systemd-boot.enable = true;

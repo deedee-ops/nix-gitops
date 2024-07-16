@@ -33,4 +33,4 @@ if useNixGL then
     '';
   }))
 else
-  (pkg.overrideAttrs (old: {}))
+  (pkg.overrideAttrs (old: { }))

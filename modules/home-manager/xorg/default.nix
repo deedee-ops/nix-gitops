@@ -1,7 +1,8 @@
 { inputs, pkgs, lib, ... }:
 let
   nixGL = import ./nixgl.nix { inherit inputs; };
-in {
+in
+{
   imports = [
     ./awesome.nix
     ./dunst.nix

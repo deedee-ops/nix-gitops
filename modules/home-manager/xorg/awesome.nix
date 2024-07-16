@@ -1,7 +1,8 @@
 { pkgs, inputs, config, osConfig, ... }:
 let
   nixGL = import ./nixgl.nix { inherit inputs; };
-in {
+in
+{
   programs.autorandr = {
     enable = true;
 

@@ -1,7 +1,8 @@
 { lib, ... }:
 let
   inherit (lib) mkOption types;
-in {
+in
+{
   options = {
     primaryUser = mkOption {
       description = "Primary user username";
@@ -18,13 +19,13 @@ in {
     allowUnfree = mkOption {
       description = "List of allowed unfree packages";
       type = types.listOf types.str;
-      default = [];
+      default = [ ];
     };
 
     hmImports = mkOption {
       description = "List of files to be imported to home manager config";
       type = types.listOf types.path;
-      default = [];
+      default = [ ];
     };
 
     remoteDomain = mkOption {

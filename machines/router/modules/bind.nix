@@ -37,7 +37,7 @@ in
 
   services.bind = {
     enable = true;
-    forwarders = [];
+    forwarders = [ ];
     ipv4Only = true;
     cacheNetworks = allowedNetworks;
     extraOptions = ''

@@ -1,7 +1,8 @@
 { pkgs, inputs, ... }:
 let
   nixGL = import ./nixgl.nix { inherit inputs; };
-in {
+in
+{
   home = {
     packages = [
       (nixGL pkgs.firefox)
