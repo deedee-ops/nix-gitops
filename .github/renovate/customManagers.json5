@@ -4,7 +4,7 @@
     {
       "description": "Arion docker image",
       "fileMatch": [
-        "(^|/)nix/.+\\.nix$"
+        ".+\\.nix$"
       ],
       "matchStrings": [
         "image *= *\"(?<depName>[^:]+):(?<currentValue>[^\"@]+)(?:@(?<currentDigest>sha256:[0-9a-f]+))?\";"
