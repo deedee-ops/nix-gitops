@@ -10,6 +10,11 @@ in
         group = "named";
         restartUnits = [ "bind.service" ];
       };
+      "bind/home_arpa_zone" = {
+        owner = "named";
+        group = "named";
+        restartUnits = [ "bind.service" ];
+      };
     };
   };
 
@@ -277,6 +282,9 @@ in
         dexter               IN  A   10.42.1.10
         nas                  IN  A   10.100.10.1
         pbs                  IN  A   10.100.10.2
+
+        ; extras
+        $INCLUDE ${config.sops.secrets."bind/home_arpa_zone".path}
       '';
     };
 
