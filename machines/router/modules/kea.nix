@@ -150,6 +150,16 @@
                 "hw-address" = "00:00:0a:64:0a:02";
                 "ip-address" = "10.100.10.2";
               }
+              {
+                # VM
+                "hw-address" = "00:00:0a:64:c8:01";
+                "ip-address" = "10.100.200.1";
+              }
+              {
+                # VM
+                "hw-address" = "00:00:0a:64:c8:02";
+                "ip-address" = "10.100.200.2";
+              }
             ];
             "option-data" = [
               {
