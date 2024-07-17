@@ -30,6 +30,7 @@
               (import ./arion-adguard-home.nix { inherit config; })
               (import ./arion-nginx-proxy-manager.nix { inherit config; })
               (import ./arion-omada-controller.nix { inherit config; })
+              (import ./arion-wg-easy.nix { inherit config; })
             ];
           };
         };

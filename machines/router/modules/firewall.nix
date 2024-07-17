@@ -25,6 +25,7 @@
           iifname "trst0" oifname "wan0" accept
           iifname "untrst0" oifname "wan0" accept
           ip daddr 10.99.0.0/16 iifname "trst0" accept
+          udp dport 53201 iifname "wan0" accept
         }
         chain OUTPUT {
           type filter hook output priority filter; policy accept;
@@ -35,12 +36,14 @@
         chain PREROUTING {
           type nat hook prerouting priority dstnat; policy accept;
           tcp dport 10000 dnat to 192.168.100.1:80
+          udp dport 53201 dnat to 10.42.1.2:53201
         }
 
         chain POSTROUTING {
           type nat hook postrouting priority srcnat; policy accept;
           oifname "wan0" masquerade
           ip daddr 192.168.100.1 masquerade
+          udp dport 53201 masquerade
         };
       };
     '';

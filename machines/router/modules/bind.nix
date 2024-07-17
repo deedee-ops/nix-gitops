@@ -247,6 +247,7 @@ in
         netia                IN  A   10.42.1.2
         omada                IN  A   10.42.1.2
         pbs                  IN  A   10.42.1.2
+        wg                   IN  A   10.42.1.2
 
         ; trusted
         nas                  IN  A   10.100.10.1
