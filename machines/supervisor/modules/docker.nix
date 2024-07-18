@@ -17,6 +17,7 @@
         owner = "root";
         group = "docker";
       };
+      "postgresql/password" = { };
     };
   };
 
@@ -30,6 +31,7 @@
               (import ./arion-adguard-home.nix { inherit config; })
               (import ./arion-nginx-proxy-manager.nix { inherit config; })
               (import ./arion-omada-controller.nix { inherit config; })
+              (import ./arion-postgresql.nix { inherit config; })
               (import ./arion-wg-easy.nix { inherit config; })
             ];
           };
