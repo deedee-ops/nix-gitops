@@ -1,17 +1,17 @@
 {
   description = "homelab";
 
-  nixConfig = {
-    substituters = [
-      "https://cache.nixos.org"
-      "https://attic.rzegocki.dev/homelab"
-    ];
-
-    trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "homelab:kwqUnjVjjHr+9sNlHHOx5KgLUBrwzvG7+ibw2Z/g8uQ="
-    ];
-  };
+  # nixConfig = {
+  #   substituters = [
+  #     "https://cache.nixos.org"
+  #     "https://attic.rzegocki.dev/homelab"
+  #   ];
+  #
+  #   trusted-public-keys = [
+  #     "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+  #     "homelab:kwqUnjVjjHr+9sNlHHOx5KgLUBrwzvG7+ibw2Z/g8uQ="
+  #   ];
+  # };
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";

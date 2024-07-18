@@ -2,7 +2,9 @@
 {
   sops = {
     secrets = {
-      "attic/server/credentials" = { };
+      "attic/server/credentials" = {
+        restartUnits = [ "atticd.service" ];
+      };
     };
   };
 
@@ -16,6 +18,11 @@
       allowed-hosts = [ "attic.${config.remoteDomain}" ];
       api-endpoint = "https://attic.${config.remoteDomain}/";
       soft-delete-caches = false;
+
+      database = {
+        # hack, to make postgres work, see: https://github.com/zhaofengli/attic/issues/152
+        url = "postgresql://postgres@localhost:5432/attic";
+      };
 
       storage = {
         type = "s3";

@@ -6,18 +6,23 @@
         mode = "0440";
         owner = "root";
         group = "docker";
+        restartUnits = [ "docker.service" ];
       };
       "dockerd/tlscert" = {
         mode = "0440";
         owner = "root";
         group = "docker";
+        restartUnits = [ "docker.service" ];
       };
       "dockerd/tlskey" = {
         mode = "0440";
         owner = "root";
         group = "docker";
+        restartUnits = [ "docker.service" ];
       };
-      "postgresql/password" = { };
+      "postgresql/password" = {
+        restartUnits = [ "docker.service" "atticd.service" ];
+      };
     };
   };
 
