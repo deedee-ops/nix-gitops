@@ -54,6 +54,7 @@ let
     user_pref("breakpad.reportURL", "");
     user_pref("browser.tabs.crashReporting.sendReport", false);
     user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+    user_pref("dom.private-attribution.submission.enabled", false);
 
     // location bar
     user_pref("browser.urlbar.speculativeConnect.enabled", false);
