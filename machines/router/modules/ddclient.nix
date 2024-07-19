@@ -2,7 +2,9 @@
 {
   sops = {
     secrets = {
-      "ddclient/cloudflare_token" = { };
+      "ddclient/cloudflare_token" = {
+        restartUnits = [ "ddclient.service" ];
+      };
     };
   };
 
