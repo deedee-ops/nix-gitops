@@ -93,7 +93,11 @@
       executable = true;
       text = ''
         #!${pkgs.coreutils-full}/bin/env ${pkgs.bash}/bin/bash
-      '' + (builtins.readFile ./dunst/play-sound.sh);
+      '' + (builtins.readFile ./dunst/play-sound.sh.tmpl);
+    };
+    dunst = {
+      source = ./dunst;
+      recursive = true;
     };
   };
 }
