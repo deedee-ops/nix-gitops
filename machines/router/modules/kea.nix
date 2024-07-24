@@ -163,18 +163,15 @@
             ];
             "option-data" = [
               {
-                name = "routers";
-                data = "10.100.1.1";
-              }
-              {
                 name = "domain-name-servers";
                 data = "10.100.1.2";
               }
-              # static routes
+              # classless-static-route forces clients to ignore both `routes` (option 3) and `static-routes` (option 33)
+              # so we need to forcefully add default route here as 0.0.0.0/0
               {
                 code = 121;
                 name = "classless-static-route";
-                data = "10.99.0.0/16 - 10.100.1.1";
+                data = "10.99.0.0/16 - 10.100.1.1, 0.0.0.0/0 - 10.100.1.1";
               }
             ];
           }
