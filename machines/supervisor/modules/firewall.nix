@@ -26,6 +26,12 @@
           iifname "lo" accept
           udp dport 53 accept
 
+          # node-exporter
+          tcp dport 9100 accept
+
+          # systemd-exporter
+          tcp dport 9558 accept
+
           # allow docker communication
           ip saddr 172.16.0.0/12 accept
 

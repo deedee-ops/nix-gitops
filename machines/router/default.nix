@@ -11,6 +11,7 @@
       ../../modules/cache.nix
       ../../modules/comin.nix
       ../../modules/locales.nix
+      ../../modules/monitoring.nix
       ../../modules/os.nix
       ../../modules/ssh.nix
       ../../modules/users.nix

@@ -22,6 +22,12 @@
           iifname "lo" accept
           iifname "mgmt0" accept
           udp dport 53 accept
+
+          # node-exporter
+          tcp dport 9100 accept
+
+          # systemd-exporter
+          tcp dport 9558 accept
         }
         chain FORWARD {
           type filter hook forward priority filter; policy drop;
