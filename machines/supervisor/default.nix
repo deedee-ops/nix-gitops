@@ -18,6 +18,7 @@
 
       ./modules/attic-server.nix
       ./modules/boot.nix
+      ./modules/firewall.nix
 
       (import ./modules/docker.nix { inherit config pkgs; })
     ];

@@ -17,6 +17,10 @@
       table ip filter {
         chain INPUT {
           type filter hook input priority filter; policy accept;
+          ct state related,established accept
+          udp dport 53 accept
+          iifname "lo" accept
+          iifname "mgmt0" accept
         }
         chain FORWARD {
           type filter hook forward priority filter; policy drop;

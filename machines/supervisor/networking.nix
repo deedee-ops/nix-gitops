@@ -5,9 +5,6 @@
     networkmanager.enable = true;
     enableIPv6 = false;
 
-    # nixos firewall adds unnecessary mess
-    firewall.enable = false;
-
     # when arion restarts, it brings all current containers down, before pulling new ones
     # this means, adguard is down, which is a dns for supervisor, and new containers
     # cannot be pulled
