@@ -173,6 +173,12 @@
                 name = "classless-static-route";
                 data = "10.99.0.0/16 - 10.100.1.1, 0.0.0.0/0 - 10.100.1.1";
               }
+              # still some clients (hello Android) doesn't support classlic-static-route, so we need to send
+              # routers as a fallback anyway
+              {
+                name = "routers";
+                data = "10.100.1.1";
+              }
             ];
           }
           {
