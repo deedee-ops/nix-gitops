@@ -62,7 +62,11 @@
 
         chain POSTROUTING {
           type nat hook postrouting priority srcnat; policy accept;
-          oifname "wan0" masquerade
+
+          # masquerade only internal traffic from VLANs
+          ip saddr 10.42.0.0/16 oifname "wan0" masquerade
+          ip saddr 10.100.0.0/16 oifname "wan0" masquerade
+          ip saddr 10.200.0.0/16 oifname "wan0" masquerade
 
           # port forward to main router
           ip daddr 192.168.100.1 masquerade
