@@ -93,7 +93,10 @@
       executable = true;
       text = ''
         #!${pkgs.coreutils-full}/bin/env ${pkgs.bash}/bin/bash
-      '' + (builtins.readFile ./dunst/play-sound.sh.tmpl);
+        if [ ! -f /tmp/.dunst-mute ]; then
+          ${pkgs.pulseaudio}/bin/paplay ${config.xdg.configHome}/dunst/pop.mp3
+        fi
+      '';
     };
     dunst = {
       source = ./dunst;

@@ -26,7 +26,3 @@ if [ "$1" = "show" ]; then
   fi
   exit 0
 fi
-
-if [ ! -f /tmp/.dunst-mute ]; then
-  paplay ~/.local/share/scripts/assets/pop.mp3
-fi
