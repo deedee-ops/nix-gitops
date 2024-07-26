@@ -21,7 +21,11 @@
           ct state related,established accept
           iifname "lo" accept
           iifname "mgmt0" accept
+
+          # DNS
           udp dport 53 accept
+          # BGP for k8s
+          ip saddr 10.100.21.0/24 tcp dport 179 accept
 
           # node-exporter
           tcp dport 9100 accept
