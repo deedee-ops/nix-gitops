@@ -241,7 +241,6 @@ in
 
         ; management
         supervisor           IN  A   10.42.1.2
-        adguard              IN  A   10.42.1.2
         attic                IN  A   10.42.1.2
         dexter               IN  A   10.42.1.2
         netia                IN  A   10.42.1.2
@@ -249,6 +248,7 @@ in
         wg                   IN  A   10.42.1.2
 
         ; trusted
+        adguard              IN  A   10.100.1.2
         nas                  IN  A   10.100.10.1
         home                 IN  A   10.100.1.2
         minio                IN  A   10.100.1.2
