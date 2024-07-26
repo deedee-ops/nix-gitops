@@ -20,6 +20,7 @@
       ../../modules/home-manager
 
       ./modules/boot.nix
+      ./modules/power.nix
     ];
 
   primaryUser = "ajgon";

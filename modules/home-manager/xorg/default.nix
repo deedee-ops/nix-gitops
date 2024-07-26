@@ -5,6 +5,7 @@ in
 {
   imports = [
     ./awesome.nix
+    ./betterlockscreen.nix
     ./dunst.nix
     ./firefox.nix
     ./fonts.nix
