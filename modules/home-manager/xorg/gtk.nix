@@ -20,8 +20,15 @@
       package = pkgs.catppuccin-cursors.mochaDark;
       name = "catppuccin-mocha-dark-cursors";
     };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "mocha";
+        accent = "blue";
+      };
+    };
     theme = {
-      name = "Catppuccin-Mocha-Standard-Blue-Dark";
+      name = "catppuccin-mocha-blue-standard+normal";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "blue" ];
         size = "standard";
