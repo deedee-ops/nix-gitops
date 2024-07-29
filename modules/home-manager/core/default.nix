@@ -4,6 +4,7 @@
     ./aichat.nix
     ./atuin.nix
     ./bat.nix
+    ./btop.nix
     ./direnv.nix
     ./env.nix
     ./gpg.nix

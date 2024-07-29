@@ -9,4 +9,12 @@
     ];
     # packages = with pkgs; [];
   };
+
+
+  system.activationScripts = {
+    create-media.text = ''
+      mkdir -p /media || true
+      chown ${config.primaryUser}:users /media
+    '';
+  };
 }
