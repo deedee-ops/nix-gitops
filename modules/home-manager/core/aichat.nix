@@ -1,5 +1,13 @@
-{ pkgs, config, lib, ... }: {
-  home.packages = [ pkgs.aichat ];
+{ config, inputs, ... }:
+let
+  # aichat in stable (24.05) repo has a bug
+  # see: https://github.com/sigoden/aichat/issues/508
+  unstableAichat = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.aichat;
+in
+{
+  home.packages = [
+    unstableAichat
+  ];
   programs.zsh.shellAliases.ai = "aichat";
 
   xdg.configFile = {
@@ -16,7 +24,7 @@
               local _old=$BUFFER
               BUFFER+="⌛"
               zle -I && zle redisplay
-              BUFFER=$(aichat -e "$_old")
+              BUFFER=$(${unstableAichat}/bin/aichat -e "$_old")
               zle end-of-line
           fi
       }
@@ -25,4 +33,3 @@
     '';
   };
 }
-
