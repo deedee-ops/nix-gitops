@@ -30,7 +30,6 @@ in
     packages = [
       (nixGL pkgs.alacritty)
       pkgs.caffeine-ng
-      (nixGL pkgs.mpv)
 
       pkgs.discord
       pkgs.obsidian

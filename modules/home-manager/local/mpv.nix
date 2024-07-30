@@ -1,8 +1,6 @@
-{ pkgs, config, lib, ... }: {
+{ pkgs, config, ... }: {
   programs.mpv = {
     enable = true;
-    # dummy package to avoid installation of mpv, as every os does it differently, and `null` is not allowed
-    package = pkgs.hello;
 
     # based on https://github.com/classicjazz/mpv-config/blob/master/mpv.conf
     config = {
@@ -52,6 +50,12 @@
 
       # Anti-ringing
       scale-antiring = 0.6;
+
+      # Theme
+      osd-back-color = "#6c7086";
+      osd-border-color = "#11111b";
+      osd-color = "#cdd6f4";
+      osd-shadow-color = "#1e1e2e";
     };
 
     profiles = {
@@ -121,6 +125,16 @@
         vf = "bwdif=mode=1";
       };
     };
+
+    bindings = {
+      "ctrl+a" = "script-message osc-visibility cycle";
+    };
+
+    scripts = [
+      pkgs.mpvScripts.mpris
+      pkgs.mpvScripts.uosc
+      pkgs.mpvScripts.thumbfast
+    ];
   };
 
   xdg.configFile = {
