@@ -1,7 +1,12 @@
-{ config, lib, ... }:
+{ inputs, config, lib, ... }:
 {
   # Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    settings.experimental-features = [ "nix-command" "flakes" ];
+    registry = {
+      nixpkgs-unstable.flake = inputs.nixpkgs-unstable;
+    };
+  };
 
   # save power
   powerManagement.cpuFreqGovernor = "powersave";
