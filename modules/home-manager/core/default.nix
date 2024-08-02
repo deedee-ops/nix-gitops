@@ -3,6 +3,7 @@
     # shell
     ./aichat.nix
     ./atuin.nix
+    ./bash.nix
     ./bat.nix
     ./btop.nix
     ./direnv.nix

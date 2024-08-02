@@ -94,7 +94,7 @@ in
         run ${pkgs.whatsapp-for-linux}/bin/whatsapp-for-linux
         run ${pkgs.slack}/bin/slack
         run ${pkgs.telegram-desktop}/bin/telegram-desktop
-        run ${(nixGL pkgs.firefox)}/bin/firefox --class webmail --profile "${config.home.homeDirectory}/.mozilla/firefox/mail"
+        run ${pkgs.thunderbird-128}/bin/thunderbird
         run ${pkgs.ungoogled-chromium}/bin/chromium --app="https://teams.microsoft.com/" --class="teams-pwa" --user-data-dir="${config.xdg.stateHome}/teams"
         run ${pkgs.caffeine-ng}/bin/caffeine
         ${pkgs.betterlockscreen}/bin/betterlockscreen -u ${config.xdg.dataHome}/wallpapers --fx dimpixel

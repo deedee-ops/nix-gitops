@@ -6,6 +6,9 @@
     registry = {
       nixpkgs-unstable.flake = inputs.nixpkgs-unstable;
     };
+    settings = {
+      use-xdg-base-directories = true;
+    };
   };
 
   # save power

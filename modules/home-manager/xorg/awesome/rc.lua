@@ -177,7 +177,7 @@ awful.rules.rules = {
 	{ rule = { class = "TelegramDesktop" }, properties = { screen = 2, tag = " 7 " } },
 	{ rule = { class = "teams-pwa" }, properties = { screen = 2, tag = " 6 " } },
 
-	{ rule = { class = "webmail" }, properties = { screen = 2, tag = " 1 " } },
+	{ rule = { class = "thunderbird" }, properties = { screen = 2, tag = " 1 " } },
 	{ rule = { class = "obsidian" }, properties = { screen = 2, tag = " 2 " } },
 
 	-- Set Firefox to always map on the tag named "2" on screen 1.

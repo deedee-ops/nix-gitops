@@ -121,7 +121,6 @@ in
 {
   programs.firefox = {
     enable = true;
-    package = null;
 
     policies = {
       DisableTelemetry = true;

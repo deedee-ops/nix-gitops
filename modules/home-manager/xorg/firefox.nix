@@ -1,11 +1,7 @@
-{ pkgs, inputs, ... }:
-let
-  nixGL = import ./nixgl.nix { inherit inputs; };
-in
+{ pkgs, ... }:
 {
   home = {
     packages = [
-      (nixGL pkgs.firefox)
       pkgs.ffmpeg-full
       pkgs.libva-utils
       pkgs.libva
@@ -16,7 +12,7 @@ in
       LIBVA_DRIVER_NAME = "nvidia";
       LIBVA_DRIVERS_PATH = "${pkgs.nvidia-vaapi-driver}/lib/dri/";
       NVD_BACKEND = "direct";
-      DEFAULT_BROWSER = "${(nixGL pkgs.firefox)}/bin/firefox";
+      DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
     };
   };
 
