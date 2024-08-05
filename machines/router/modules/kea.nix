@@ -1,6 +1,6 @@
-{ config, pkgs, nixpkgs-unstable, ... }:
+{ inputs, config, pkgs, ... }:
 {
-  nixpkgs.overlays = [ (final: prev: { kea = nixpkgs-unstable.legacyPackages."x86_64-linux".kea; }) ];
+  nixpkgs.overlays = [ (final: prev: { kea = inputs.nixpkgs-unstable.legacyPackages."x86_64-linux".kea; }) ];
 
   sops = {
     secrets = {
@@ -45,14 +45,14 @@
         reservations = [
           # ignore omada devices to avoid suprises when provisioning them
           {
-            # switch
+            # main switch
             "hw-address" = "24:2f:d0:88:84:ab";
             "client-classes" = [
               "DROP"
             ];
           }
           {
-            # living root switch
+            # living room switch
             "hw-address" = "98:25:4a:47:66:f8";
             "client-classes" = [
               "DROP"

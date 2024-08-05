@@ -38,7 +38,7 @@
     {
       nixosConfigurations.router = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit nixpkgs-unstable; };
+        specialArgs = { inherit inputs; };
         modules = [
           ./machines/router
 
@@ -48,6 +48,7 @@
       };
       nixosConfigurations.supervisor = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./machines/supervisor
 

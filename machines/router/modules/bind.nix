@@ -25,16 +25,16 @@ in
       chown named:named /etc/bind /etc/bind/zones || chown 995:994 /etc/bind /etc/bind/zones
       chmod 510 /etc/bind
       chmod 750 /etc/bind/zones
-      ${pkgs.bind}/sbin/rndc freeze ${config.localDomain}
-      ${pkgs.bind}/sbin/rndc freeze 100.10.in-addr.arpa
-      ${pkgs.bind}/sbin/rndc freeze 200.10.in-addr.arpa
+      ${pkgs.bind}/sbin/rndc freeze ${config.localDomain} || true
+      ${pkgs.bind}/sbin/rndc freeze 100.10.in-addr.arpa || true
+      ${pkgs.bind}/sbin/rndc freeze 200.10.in-addr.arpa || true
     '';
     # "restart-bind" is alphabetically after "etc" script
     restart-bind.text = ''
       for zone in /etc/bind/zones/*.zone; do ${pkgs.gnused}/bin/sed -i"" "s@1000000099@$(date +%s)@g" $zone; done
-      ${pkgs.bind}/sbin/rndc thaw ${config.localDomain}
-      ${pkgs.bind}/sbin/rndc thaw 100.10.in-addr.arpa
-      ${pkgs.bind}/sbin/rndc thaw 200.10.in-addr.arpa
+      ${pkgs.bind}/sbin/rndc thaw ${config.localDomain} || true
+      ${pkgs.bind}/sbin/rndc thaw 100.10.in-addr.arpa || true
+      ${pkgs.bind}/sbin/rndc thaw 200.10.in-addr.arpa || true
       ${pkgs.bind}/sbin/rndc sync
       ${pkgs.systemd}/bin/systemctl restart bind
     '';

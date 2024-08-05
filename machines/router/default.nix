@@ -1,4 +1,4 @@
-{ config, pkgs, nixpkgs-unstable, ... }:
+{ config, pkgs, ... }:
 {
   imports =
     [
@@ -22,7 +22,7 @@
       ./modules/ddclient.nix
       ./modules/firewall.nix
       ./modules/frr.nix
-      (import ./modules/kea.nix { inherit config pkgs nixpkgs-unstable; })
+      ./modules/kea.nix
     ];
 
   primaryUser = "ajgon";
