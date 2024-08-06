@@ -1,35 +1,84 @@
 { config, ... }:
 {
+  systemd.network = {
+    enable = true;
+    netdevs = {
+      "0042-management" = {
+        netdevConfig = {
+          Kind = "vlan";
+          Name = "mgmt0";
+        };
+        vlanConfig.Id = 42;
+      };
+      "0100-trusted" = {
+        netdevConfig = {
+          Kind = "vlan";
+          Name = "trst0";
+        };
+        vlanConfig.Id = 100;
+      };
+      "0210-iot" = {
+        netdevConfig = {
+          Kind = "vlan";
+          Name = "iot0";
+        };
+        vlanConfig.Id = 210;
+      };
+    };
+
+    networks = {
+      # systemd is stupid, see: https://volatilesystems.org/implementing-vlans-with-systemd-networkd-on-an-active-physical-interface.html
+      "1000-physical-untrusted" = {
+        matchConfig.Name = "enp5s0";
+        vlan = [
+          "mgmt0"
+          "trst0"
+          "iot0"
+        ];
+        linkConfig = {
+          RequiredForOnline = "routable";
+          MTUBytes = "9000";
+        };
+        networkConfig = {
+          DHCP = "ipv4";
+        };
+      };
+      "1042-management" = {
+        matchConfig.Name = "mgmt0";
+        linkConfig = {
+          RequiredForOnline = "routable";
+        };
+        networkConfig = {
+          LinkLocalAddressing = "no";
+          DHCP = "ipv4";
+        };
+      };
+      "1100-trusted" = {
+        matchConfig.Name = "trst0";
+        linkConfig = {
+          RequiredForOnline = "routable";
+          MTUBytes = "9000";
+        };
+        networkConfig = {
+          LinkLocalAddressing = "no";
+          DHCP = "ipv4";
+        };
+      };
+      "1210-iot" = {
+        matchConfig.Name = "iot0";
+        address = [ "10.210.50.50/16" ];
+        linkConfig = {
+          RequiredForOnline = "carrier";
+        };
+      };
+    };
+  };
+
   networking = {
-    useDHCP = true;
-    enableIPv6 = false;
     hostName = "piecyk";
+    networkmanager.enable = false;
+    enableIPv6 = false;
+    useDHCP = false;
     domain = "${config.localDomain}";
-    vlans = {
-      mgmt0 = { id = 42; interface = "enp5s0"; };
-      trst0 = { id = 100; interface = "enp5s0"; };
-      iot0 = { id = 210; interface = "enp5s0"; };
-    };
-
-    interfaces.enp5s0 = {
-      useDHCP = true;
-      mtu = 9000;
-    };
-
-    interfaces.mgmt0 = {
-      useDHCP = true;
-    };
-
-    interfaces.trst0 = {
-      useDHCP = true;
-      mtu = 9000;
-    };
-
-    interfaces.iot0 = {
-      ipv4.addresses = [{
-        address = "10.210.50.50";
-        prefixLength = 16;
-      }];
-    };
   };
 }
