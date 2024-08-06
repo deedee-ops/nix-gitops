@@ -1,12 +1,14 @@
 { inputs, pkgs, lib, ... }:
 let
   nixGL = import ./nixgl.nix { inherit inputs; };
+  everdo = pkgs.callPackage ../../../pkgs/everdo.nix { };
 in
 {
   imports = [
     ./awesome.nix
     ./betterlockscreen.nix
     ./dunst.nix
+    # ./everdo.nix
     ./firefox.nix
     ./fonts.nix
     ./gtk.nix
@@ -37,6 +39,8 @@ in
       pkgs.telegram-desktop
       pkgs.whatsapp-for-linux
       pkgs.ungoogled-chromium # for webapps
+
+      everdo
     ];
   };
 

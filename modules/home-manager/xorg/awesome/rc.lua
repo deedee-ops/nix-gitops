@@ -179,6 +179,7 @@ awful.rules.rules = {
 
 	{ rule = { class = "thunderbird" }, properties = { screen = 2, tag = " 1 " } },
 	{ rule = { class = "obsidian" }, properties = { screen = 2, tag = " 2 " } },
+	{ rule = { class = "everdo" }, properties = { screen = 2, tag = " 3 " } },
 
 	-- Set Firefox to always map on the tag named "2" on screen 1.
 	-- { rule = { class = "Firefox" },

@@ -1,6 +1,6 @@
-{ pkgs, inputs, config, osConfig, ... }:
+{ pkgs, config, osConfig, ... }:
 let
-  nixGL = import ./nixgl.nix { inherit inputs; };
+  everdo = pkgs.callPackage ../../../pkgs/everdo.nix { };
 in
 {
   programs.autorandr = {
@@ -97,6 +97,7 @@ in
         run ${pkgs.thunderbird-128}/bin/thunderbird
         run ${pkgs.ungoogled-chromium}/bin/chromium --app="https://teams.microsoft.com/" --class="teams-pwa" --user-data-dir="${config.xdg.stateHome}/teams"
         run ${pkgs.caffeine-ng}/bin/caffeine
+        run ${everdo}/bin/everdo
         ${pkgs.betterlockscreen}/bin/betterlockscreen -u ${config.xdg.dataHome}/wallpapers --fx dimpixel
       '';
     };
