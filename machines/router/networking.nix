@@ -8,7 +8,7 @@
         linkConfig.Name = "wan0";
       };
       "42-management" = {
-        matchConfig.PermanentMACAddress = "00:00:0a:2a:01:01";
+        matchConfig.PermanentMACAddress = "02:00:0a:2a:01:01";
         linkConfig.Name = "mgmt0";
       };
       "100-trusted" = {

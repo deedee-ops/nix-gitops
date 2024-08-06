@@ -100,7 +100,7 @@
             reservations = [
               {
                 # supervisor
-                "hw-address" = "00:00:0a:2a:01:02";
+                "hw-address" = "02:00:0a:2a:01:02";
                 "ip-address" = "10.42.1.2";
               }
               {
@@ -132,12 +132,12 @@
             reservations = [
               {
                 # supervisor
-                "hw-address" = "00:00:0a:64:01:02";
+                "hw-address" = "02:00:0a:64:01:02";
                 "ip-address" = "10.100.1.2";
               }
               {
                 # HAOS VM
-                "hw-address" = "00:00:0a:64:01:03";
+                "hw-address" = "02:00:0a:64:01:03";
                 "ip-address" = "10.100.1.3";
               }
               {
@@ -147,17 +147,17 @@
               }
               {
                 # Proxmox Backup Server VM
-                "hw-address" = "00:00:0a:64:0a:02";
+                "hw-address" = "02:00:0a:64:0a:02";
                 "ip-address" = "10.100.10.2";
               }
               {
                 # VM
-                "hw-address" = "00:00:0a:64:c8:01";
+                "hw-address" = "02:00:0a:64:c8:01";
                 "ip-address" = "10.100.200.1";
               }
               {
                 # VM
-                "hw-address" = "00:00:0a:64:c8:02";
+                "hw-address" = "02:00:0a:64:c8:02";
                 "ip-address" = "10.100.200.2";
               }
             ];
@@ -193,7 +193,7 @@
             reservations = [
               {
                 # supervisor
-                "hw-address" = "00:00:0a:c8:01:02";
+                "hw-address" = "02:00:0a:c8:01:02";
                 "ip-address" = "10.200.1.2";
               }
             ];
