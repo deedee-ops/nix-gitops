@@ -10,7 +10,6 @@
     # packages = with pkgs; [];
   };
 
-
   system.activationScripts = {
     create-media.text = ''
       mkdir -p /media || true
