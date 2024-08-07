@@ -29,5 +29,9 @@
     "fileMatch": [
       "flake\\.nix$"
     ],
+  },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
   }
 }
