@@ -65,7 +65,7 @@ local globalkeys = gears.table.join(
 		awful.util.spawn("rofi -show drun -theme " .. xdg_config_home .. "/rofi/drun/config.rasi")
 	end, { description = "command runner", group = "apps" }),
 	awful.key({ RC.vars.modkey }, "Tab", function()
-		awful.util.spawn("rofi -show window -theme " .. xdg_config_home .. "/rofi/drun/config.rasi")
+    awful.util.spawn("rofi -show window -theme " .. xdg_config_home .. "/rofi/drun/config.rasi -window-command '" .. xdg_config_home .. "/rofi/window/focus-window.sh {window}' -kb-accept-entry '' -kb-accept-alt 'Return,KP_Enter'")
 	end, { description = "window switcher", group = "apps" }),
 	awful.key({ RC.vars.modkey, "Shift" }, "e", function()
 		awful.util.spawn(xdg_config_home .. "/rofi/powermenu/powermenu.sh")

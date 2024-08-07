@@ -67,6 +67,22 @@
         #!${pkgs.coreutils-full}/bin/env ${pkgs.bash}/bin/bash
       '' + (builtins.readFile ./rofi/powermenu/powermenu.sh.tmpl);
     };
+    "rofi/window/focus-window.sh" = {
+      executable = true;
+      text = ''
+        #!${pkgs.coreutils-full}/bin/env ${pkgs.bash}/bin/bash
+
+        echo "
+        for _, c in ipairs(client.get()) do
+          if c.window == $1 then
+            c:tags()[1]:view_only()
+            client.focus = c
+            c:raise()
+          end
+        end
+        " | ${pkgs.awesome}/bin/awesome-client
+      '';
+    };
     "greenclip.toml" = {
       text = ''
         [greenclip]
