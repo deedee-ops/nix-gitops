@@ -7,6 +7,7 @@
     defaultSopsFile = ./personal.sops.yaml;
     secrets = {
       "atuin/key" = { };
+      "everdo/apikey" = { };
       "kubectl/config" = { };
       "openai/apikey" = { };
       "ssh/personal/key" = { };

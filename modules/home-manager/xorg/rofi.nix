@@ -67,6 +67,19 @@
         #!${pkgs.coreutils-full}/bin/env ${pkgs.bash}/bin/bash
       '' + (builtins.readFile ./rofi/powermenu/powermenu.sh.tmpl);
     };
+    "rofi/todo/todo.sh" = {
+      executable = true;
+      text = ''
+        #!${pkgs.coreutils-full}/bin/env ${pkgs.bash}/bin/bash
+
+        if [ -n "$*" ]; then
+          ${pkgs.curl}/bin/curl -s -o /dev/null -k --header "Content-Type: application/json" \
+          --request POST \
+          --data "{\"title\": \"$*\" }" \
+          "https://localhost:11111/api/items?key=$(cat ${config.sops.secrets."everdo/apikey".path})"
+        fi
+      '';
+    };
     "rofi/window/focus-window.sh" = {
       executable = true;
       text = ''
