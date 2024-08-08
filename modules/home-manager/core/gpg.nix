@@ -43,6 +43,6 @@
   services.gpg-agent = {
     enable = lib.mkDefault true;
     enableScDaemon = true;
-    pinentryPackage = pkgs.pinentry;
+    pinentryPackage = lib.mkDefault pkgs.pinentry;
   };
 }

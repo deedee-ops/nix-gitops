@@ -1,4 +1,17 @@
-{ pkgs, config, osConfig, lib, ... }: {
+{ pkgs, config, osConfig, lib, ... }:
+let
+  pinentryRofi = pkgs.writeShellApplication {
+    name = "pinentry-rofi-with-env";
+    text = ''
+      PATH="$PATH:${pkgs.coreutils-full}/bin:${pkgs.rofi}/bin"
+      "${pkgs.pinentry-rofi}/bin/pinentry-rofi" "$@" -- -theme ${config.xdg.configHome}/rofi/pinentry/config.rasi
+    '';
+    meta = {
+      mainProgram = "pinentry-rofi-with-env";
+    };
+  };
+in
+{
   home = {
     packages = [
       pkgs.haskellPackages.greenclip
@@ -31,35 +44,14 @@
     enable = true;
   };
 
+  services.gpg-agent = {
+    pinentryPackage = lib.mkForce pinentryRofi;
+  };
+
   xdg.configFile = {
     rofi = {
       source = ./rofi;
       recursive = true;
-    };
-    "rofi/pinentry/pinentry" = {
-      executable = true;
-      text = ''
-        #!${pkgs.coreutils-full}/bin/env ${pkgs.bash}/bin/bash
-        # hacky workaround to make pinentry-rofi use proper theme
-
-        SCRIPT_DIR=$( cd -- "$( dirname -- "''${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-
-        export PATH="''${SCRIPT_DIR}:''${PATH}}"
-
-        pinentry-rofi $*
-      '';
-    };
-    "rofi/pinentry/rofi" = {
-      executable = true;
-      text = ''
-        #!${pkgs.coreutils-full}/bin/env ${pkgs.bash}/bin/bash
-
-        SCRIPT_DIR=$( cd -- "$( dirname -- "''${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-
-        export PATH="$(echo $PATH | sed 's@[^:]*:@@')" # remove hacky rofi from path to avoid infinite loop
-
-        rofi -theme ''${SCRIPT_DIR}/config.rasi $*
-      '';
     };
     "rofi/powermenu/powermenu.sh" = {
       executable = true;

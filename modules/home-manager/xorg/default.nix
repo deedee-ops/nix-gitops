@@ -44,8 +44,6 @@ in
     ];
   };
 
-  services.gpg-agent.pinentryPackage = lib.mkForce pkgs.pinentry-gtk2;
-
   xdg.configFile."whatsapp-for-linux/settings.conf".text = ''
     [general]
     notification-sounds=true
