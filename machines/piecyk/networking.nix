@@ -89,5 +89,8 @@
     enableIPv6 = false;
     useDHCP = false;
     domain = "${config.localDomain}";
+    firewall = {
+      interfaces."trst0".allowedTCPPorts = [ 11111 ]; # allow access to everdo
+    };
   };
 }
