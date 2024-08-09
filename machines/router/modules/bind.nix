@@ -283,6 +283,7 @@ in
         dexter               IN  A   10.42.1.10
         nas                  IN  A   10.100.10.1
         pbs                  IN  A   10.100.10.2
+        piecyk               IN  A   10.100.100.10
 
         ; extras
         $INCLUDE ${config.sops.secrets."bind/home_arpa_zone".path}

@@ -10,7 +10,6 @@
         netdevConfig = {
           Kind = "vlan";
           Name = "mgmt0";
-          MACAddress = "02:2a:01:00:00:00";
         };
         vlanConfig.Id = 42;
       };
@@ -18,7 +17,6 @@
         netdevConfig = {
           Kind = "vlan";
           Name = "trst0";
-          MACAddress = "02:2a:01:00:00:01";
         };
         vlanConfig.Id = 100;
       };
@@ -26,7 +24,6 @@
         netdevConfig = {
           Kind = "vlan";
           Name = "iot0";
-          MACAddress = "02:2a:01:00:00:03";
         };
         vlanConfig.Id = 210;
       };

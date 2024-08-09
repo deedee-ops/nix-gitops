@@ -151,6 +151,11 @@
                 "ip-address" = "10.100.10.2";
               }
               {
+                # Desktop PC
+                "hw-address" = "c8:7f:54:8f:e7:34";
+                "ip-address" = "10.100.100.10";
+              }
+              {
                 # VM
                 "hw-address" = "02:00:0a:64:c8:01";
                 "ip-address" = "10.100.200.1";
